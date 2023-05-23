@@ -4,12 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Product extends Component
+class Order extends Component
 {
-   
     public function render()
     {
-        $title = "ss";
-        return view('livewire.product');
+        return view('livewire.order');
     }
 }
