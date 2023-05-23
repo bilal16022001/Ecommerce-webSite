@@ -8,7 +8,8 @@ use App\Http\livewire\landing\ContactComponent;
 use App\Http\livewire\landing\ShopCartComponent;
 use App\Http\livewire\landing\CheckOutComponent;
 use App\Http\livewire\landing\AccountComponent;
-use App\Http\livewire\landing\ProductComponent;
+use App\Http\Livewire\Product;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,7 @@ Route::get("/About", AboutComponent::class)->name("About");
 Route::get("/Shopcart", ShopCartComponent::class)->name("Shopcart");
 Route::get("/Checkout", CheckOutComponent::class)->name("Checkout");
 Route::get("/Account", AccountComponent::class)->name("Account");
-Route::get("/dashboard/Products", ProductComponent::class)->name("Products");
+Route::get("Products", Product::class)->name("Products");
 
 Route::middleware([
     'auth:sanctum',

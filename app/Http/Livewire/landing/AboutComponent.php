@@ -9,6 +9,6 @@ class AboutComponent extends Component
     public function render()
     {
         $title = 'About';
-        return view('livewire.landing/about-component')->layout("layouts.landing", ['title' => $title]);
+        return view('livewire.landing/about-component')->layout("layouts.guest", ['title' => $title]);
     }
 }
