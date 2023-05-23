@@ -9,6 +9,6 @@ class AccountComponent extends Component
     public function render()
     {
         $title = 'Account';
-        return view('livewire.landing/account-component')->layout('layouts.landing',['title'=> $title]);
+        return view('livewire.landing/account-component')->layout('layouts.guest', ['title' => $title]);
     }
 }

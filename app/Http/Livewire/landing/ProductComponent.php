@@ -8,7 +8,7 @@ class ProductComponent extends Component
 {
     public function render()
     {
-        $title="product";
-        return view('livewire.landing/product-component')->layout('layouts.landing',['title'=>$title]);
+        $title = "product";
+        return view('livewire.landing/product-component')->layout('layouts.guest', ['title' => $title]);
     }
 }

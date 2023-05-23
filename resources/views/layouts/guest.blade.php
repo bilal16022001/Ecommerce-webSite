@@ -154,6 +154,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if(!Auth::guard("web")->user())
                                 <div class="header-action-icon-2">
                                     <a href="page-account.html">
                                         <img class="svgInject" alt="Nest" src="{{asset('assets/landing/imgs/theme/icons/icon-user.svg')}}" />
@@ -171,6 +172,8 @@
                                         </ul>
                                     </div>
                                 </div>
+                                @else
+                                  @if(Auth::guard("web")->user()->type == "user")
                                 <div class="header-action-icon-2">
                                     <a href="page-account.html">
                                         <img class="svgInject" alt="Nest" src="{{asset('assets/landing/imgs/theme/icons/icon-user.svg')}}" />
@@ -190,6 +193,8 @@
                                         </ul>
                                     </div>
                                 </div>
+                                  @endif
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,7 @@ class ShopCartComponent extends Component
 {
     public function render()
     {
-        $title ='ShopCart';
-        return view('livewire.landing/shop-cart-component')->layout('layouts.landing',['title'=>$title]);
+        $title = 'ShopCart';
+        return view('livewire.landing/shop-cart-component')->layout('layouts.guest', ['title' => $title]);
     }
 }

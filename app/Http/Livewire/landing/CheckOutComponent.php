@@ -8,7 +8,7 @@ class CheckOutComponent extends Component
 {
     public function render()
     {
-        $title ='CheckOut';
-        return view('livewire.landing/check-out-component')->layout('layouts.landing',['title'=>$title]);
+        $title = 'CheckOut';
+        return view('livewire.landing/check-out-component')->layout('layouts.guest', ['title' => $title]);
     }
 }
