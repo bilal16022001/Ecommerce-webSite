@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->text('description');
+            $table->String('imageProduct');
+            $table->ForeignId("Category_id")->references("id")->on("categories")->onDelete("cascade")->onUpdate("cascade");
             $table->ForeignId("SubCat_id")->references("id")->on("sub_categories")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
