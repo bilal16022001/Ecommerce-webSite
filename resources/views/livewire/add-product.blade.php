@@ -6,7 +6,6 @@
                             <h2 class="content-title">Add New Product</h2>
                             <div>
                                 
-                                <button class="btn btn-md rounded font-sm hover-up">Publich</button>
                             </div>
                         </div>
                     </div>
@@ -16,7 +15,7 @@
                                 <h4>Add Products</h4>
                             </div>
                             <div class="card-body">
-                                <form wire:submit.prevent="insertProduct" enctype="multipart/form-data">
+                                <form wire:submit.prevent="insertProduct"  enctype="multipart/form-data">
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Product title</label>
                                         <input type="text" placeholder="Type here" class="form-control" id="product_name" wire:model="name" />
@@ -41,11 +40,6 @@
                                     
                                            @endforeach
                                      </select>
-
-                                       
-
-                                        {{$Category_id}}
-
                                     </div>
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Sub-Category</label>
@@ -58,14 +52,15 @@
                                             @endforeach
                                              </select>                                    </div>
                                     <div class="mb-4">
-                                        <label for="product_name" class="form-label">image product</label>
-                                        <input type="file" placeholder="Type here" class="form-control" id="product_name" wire:model="imageProduct" />
+                                        <label for="" class="form-label">image product</label>
+                                        <input type="file" placeholder="Type here" class="form-control" id="" wire:model="imageProduct" />
+                                        @error('imageProduct') <span class="error">{{ $message }}</span> @enderror
                                     </div>
                                         
                                     </div>
 
                                     
-                                    
+                                    <button type="submit" class="btn btn-md rounded font-sm hover-up">Publich</button>
                                 </form>
                             </div>
                         </div>
