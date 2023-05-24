@@ -3,13 +3,16 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use  App\Models\Product;
 
-class Product extends Component
+class Productc extends Component
 {
+    public $products;
    
     public function render()
     {
-        $title = "ss";
+        $this->products=Product::all();
+     
         return view('livewire.product');
     }
 }

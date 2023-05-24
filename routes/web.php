@@ -8,7 +8,7 @@ use App\Http\livewire\landing\ContactComponent;
 use App\Http\livewire\landing\ShopCartComponent;
 use App\Http\livewire\landing\CheckOutComponent;
 use App\Http\livewire\landing\AccountComponent;
-use App\Http\Livewire\Product;
+use App\Http\Livewire\Productc;
 use App\Http\Livewire\Order;
 use App\Http\Livewire\AddProduct;
 
@@ -31,7 +31,7 @@ Route::get("/About", AboutComponent::class)->name("About");
 Route::get("/Shopcart", ShopCartComponent::class)->name("Shopcart");
 Route::get("/Checkout", CheckOutComponent::class)->name("Checkout");
 Route::get("/Account", AccountComponent::class)->name("Account");
-Route::get("/Products", Product::class)->name("Products");
+Route::get("/Products", Productc::class)->name("Products");
 Route::get("/Orders", Order::class)->name("Orders");
 Route::get("/AddProducts", AddProduct::class)->name("AddProducts");
 
