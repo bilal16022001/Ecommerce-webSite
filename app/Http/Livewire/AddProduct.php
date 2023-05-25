@@ -33,9 +33,6 @@ class AddProduct extends Component
     public function insertProduct()
     {
 
-
-        // $path = $this->imageProduct->store('images', "public");
-
         if ($this->imageProduct) {
 
             $path = $this->imageProduct->store('images', 'Images');

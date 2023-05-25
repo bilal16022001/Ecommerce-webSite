@@ -45,8 +45,13 @@
                                         <a href="#" class="title text-truncate">  {{$product->name}} </a>
                                         <div class="price mb-2">${{$product->price}}</div>
                                         <!-- price.// -->
-                                        <a href="#" class="btn btn-sm font-sm rounded btn-brand" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="material-icons md-edit"></i> Edit </a>
-                                        <a href="#" class="btn btn-sm font-sm btn-light rounded"> <i class="material-icons md-delete_forever"></i> Delete </a>
+                                        <a href="EditProduct/{{$product->id}}" class="btn btn-sm font-sm rounded btn-brand" ></i> Edit </a>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">
+delztz
+</button>
+                                        <div>
+                    </div>
+
  
                                     </div>
                                 </div>
@@ -56,7 +61,7 @@
                         </div>
                         <!-- row.// -->
                     </div>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -64,7 +69,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+      {{$product->name}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -77,6 +82,12 @@
                     <!-- card-body end// -->
                 </div>
                 <!-- card end// -->
-               
+
             </section>
 </div>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->

@@ -11,6 +11,7 @@ use App\Http\livewire\landing\AccountComponent;
 use App\Http\Livewire\Productc;
 use App\Http\Livewire\Order;
 use App\Http\Livewire\AddProduct;
+use App\Http\Livewire\EditProduct;
 
 
 /*
@@ -34,7 +35,7 @@ Route::get("/Account", AccountComponent::class)->name("Account");
 Route::get("/Products", Productc::class)->name("Products");
 Route::get("/Orders", Order::class)->name("Orders");
 Route::get("/AddProducts", AddProduct::class)->name("AddProducts");
-
+Route::get("/EditProduct/{id}", EditProduct::class)->name("EditProduct");
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
