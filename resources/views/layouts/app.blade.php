@@ -14,7 +14,7 @@
         <meta property="og:image" content="" />
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/assets/dashboard/imgs/theme/favicon.svg" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
         <!-- Template CSS -->
         <link href="http://127.0.0.1:8000/assets/dashboard/css/main.css?v=1.1" rel="stylesheet" type="text/css" />
@@ -45,30 +45,30 @@
                             <i class="icon material-icons md-shopping_bag"></i>
                             <span class="text">Products</span>
                         </a>
-                        
+
                     </li>
                     <li class="menu-item has-submenu">
                         <a class="menu-link" href="{{route('Orders')}}">
                             <i class="icon material-icons md-shopping_cart"></i>
                             <span class="text">Orders</span>
                         </a>
-                       
+
                     </li>
-                    
+
                     <li class="menu-item has-submenu">
                         <a class="menu-link" href="{{route('AddProducts')}}">
                             <i class="icon material-icons md-add_box"></i>
                             <span class="text">Add product</span>
                         </a>
-                        
+
                     </li>
-                    
+
                     <li class="menu-item has-submenu">
                         <a class="menu-link" href="page-form-product-1.html">
                             <i class="icon material-icons md-add_box"></i>
                             <span class="text">Report</span>
                         </a>
-                        
+
                     </li>
 
                     <li class="menu-item has-submenu">
@@ -76,7 +76,7 @@
                             <i class="icon material-icons md-add_box"></i>
                             <span class="text">Search</span>
                         </a>
-                        
+
                     </li>
 
 
@@ -85,14 +85,14 @@
                             <i class="icon material-icons md-person"></i>
                             <span class="text">Account</span>
                         </a>
-                        
+
                     </li>
-                    
-                    
-                    
+
+
+
                 </ul>
                 <hr />
-                
+
                 <br />
                 <br />
             </nav>
@@ -100,14 +100,14 @@
         <main class="main-wrap">
             <header class="main-header navbar">
                 <div class="col-search">
-                   
+
                 </div>
                 <div class="col-nav">
                     <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"><i class="material-icons md-apps"></i></button>
                     <ul class="nav">
-                       
-                        
-                        
+
+
+
                         <li class="dropdown nav-item">
                             <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="http://127.0.0.1:8000/assets/dashboard/imgs/people/avatar-2.png" alt="User" /></a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
@@ -119,15 +119,16 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-danger" href="#"><i class="material-icons md-exit_to_app"></i>Logout</a>
                             </div>
+
                         </li>
                     </ul>
                 </div>
             </header>
-            {{ $slot }} 
+            {{ $slot }}
             <!-- content-main end// -->
-            
+
         </main>
-        <script src="{{asset('assets/js/vendors/jquery-3.6.0.min.js')}}"></script>
+        <script src="{{asset('assets/dashboard/js/vendors/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('assets/js/vendors/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('assets/js/vendors/select2.min.js')}}"></script>
         <script src="{{asset('assets/js/vendors/perfect-scrollbar.js')}}"></script>
@@ -136,8 +137,15 @@
         <!-- Main Script -->
         <script src="{{asset('assets/js/main.js?v=1.1')}}" type="text/javascript"></script>
         <script src="{{asset('assets/js/custom-chart.js')}}" type="text/javascript"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> --}}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
+        <script>
+            window.livewire.on('deleteproduct', function(){
+                document.getElementById("exampleModal").modal('hide');
+            });
+        </script>
         @livewireScripts
+
     </body>
 </html>

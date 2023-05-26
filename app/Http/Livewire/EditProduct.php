@@ -11,9 +11,10 @@ use Livewire\WithFileUploads;
 
 class EditProduct extends Component
 {
-    
-    use WithFileUploads;
 
+    use WithFileUploads;
+    public $SubCategory;
+    public $Categoreis;
     public $name;
     public $description;
     public $pro_id;
@@ -36,7 +37,7 @@ class EditProduct extends Component
 
 
      public function UpdateProduct(){
-         
+
          $product = Product::findOrFail($this->pro_id);
 
          $product->name = $this->name;
@@ -50,16 +51,16 @@ class EditProduct extends Component
                 $path = $this->imageProduct->store('images', 'Images');
             }
             $product->imageProduct = $path;
-            
+
             // Save the changes
             $product->save();
             return redirect()->route("Products");
-     } 
+     }
 
- 
+
     public function render()
     {
-       
+
         $this->Categoreis = Category::all();
         $this->SubCategory = SubCategory::all();
 

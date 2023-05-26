@@ -9,18 +9,30 @@ class Productc extends Component
 {
     public $products;
 
-    public function DeleteProduct($id){
-        $product = Product::findOrFail($id);
+    public $delete;
+
+    public function deleteProduct($idp)
+    {
+        $this->delete=$idp;
+
+    }
+
+
+    public function confirmDeleteProduct(){
+
+        $product = Product::findOrFail($this->delete);
+
         $product->delete();
         session()->flash('success', 'Product deleted successfully.');
+      //$this->emit('deleteproduct');
+       return redirect()->route("Products");
 
-        return redirect()->route("Products");
   }
 
     public function render()
     {
         $this->products=Product::all();
-     
+
         return view('livewire.product');
     }
 }
