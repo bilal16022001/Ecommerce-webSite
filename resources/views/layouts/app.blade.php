@@ -15,6 +15,7 @@
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/assets/dashboard/imgs/theme/favicon.svg" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
 
         <!-- Template CSS -->
         <link href="http://127.0.0.1:8000/assets/dashboard/css/main.css?v=1.1" rel="stylesheet" type="text/css" />
@@ -179,12 +180,6 @@
         <script src="{{asset('assets/js/custom-chart.js')}}" type="text/javascript"></script>
         {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-
-        <script>
-            window.livewire.on('deleteproduct', function(){
-                document.getElementById("exampleModal").modal('hide');
-            });
-        </script>
         @livewireScripts
 
     </body>

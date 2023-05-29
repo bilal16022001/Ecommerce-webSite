@@ -11,8 +11,14 @@ use App\Models\Category;
 class Categoryc extends Component
 {
     public $Name;
+    public $categories;
+    public $category_id;
+    public $category;
+    public $editName;
+    public $delete;
 
-    public function insertcategory(){
+    public function insertcategory()
+    {
 
         Category::create([
             "name" => $this->Name,
@@ -20,12 +26,44 @@ class Categoryc extends Component
 
         session()->flash('success', 'Category added successfully.');
 
-         return redirect()->route("category");
+        return redirect()->route("category");
+    }
 
+    public function getId($id)
+    {
+        $this->category_id = $id;
+        $cat = Category::FindOrFail($id);
+        $this->Name = $cat->name;
+    }
+    public function UpdateCategory()
+    {
+
+        $category = Category::findOrFail($this->category_id);
+        $category->Name = $this->Name;
+        $category->save();
+
+        session()->flash('success', 'Category updated successfully.');
+        return redirect()->route("category");
+    }
+
+
+    public function deleteCategory($idp)
+    {
+        $this->delete = $idp;
+    }
+
+    public function confirmDeleteCategory()
+    {
+
+        Category::destroy($this->delete);
+        session()->flash('susccess', 'Category deleted successfully.');
+        return redirect()->route("category");
     }
 
     public function render()
     {
+        $this->categories = Category::all();
+
         return view('livewire.category');
     }
 }

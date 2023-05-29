@@ -40,7 +40,7 @@ class EditProduct extends Component
 
          $product = Product::findOrFail($this->pro_id);
 
-         $product->name = $this->name;
+            $product->name = $this->name;
             $product->description = $this->description;
             $product->price = $this->price;
             $product->category_id = $this->category_id;
