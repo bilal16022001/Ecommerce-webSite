@@ -31,6 +31,20 @@ class AddProduct extends Component
         return view('livewire.add-product');
     }
 
+    public function updated($fields){
+
+        $this->validateOnly($fields,
+        [
+
+            'name' => 'required|unique:products,name',
+            'Description' => 'required',
+            'Price' => 'required|numeric',
+            'imageProduct' => 'required|image|max:2048',
+            'Category_id' => 'required',
+            'SubCategory_id' => 'required',
+        ]);
+    }
+
     public function insertProduct()
     {
          $this->validate([

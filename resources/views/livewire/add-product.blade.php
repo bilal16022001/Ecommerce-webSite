@@ -69,6 +69,9 @@
                                     <div class="mb-4">
                                         <label for="" class="form-label">image product</label>
                                         <input type="file" placeholder="Type here" class="form-control mb-2" id="" wire:model="imageProduct" />
+                                        @if($imageProduct)
+                                        <img src="{{ $imageProduct->temporaryUrl() }}" >
+                                        @endif
                                         @error('imageProduct')
                                         <div class="alert alert-danger">{{$message}}</div>
                                        @enderror
