@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 class AddProduct extends Component
 {
     use WithFileUploads;
+
     public $name;
     public $Description;
     public $Price;
@@ -20,7 +21,7 @@ class AddProduct extends Component
     public $SubCategory;
     public $Category_id;
     public $SubCategory_id;
-
+    public $validatedData;
 
     public function render()
     {
@@ -32,7 +33,14 @@ class AddProduct extends Component
 
     public function insertProduct()
     {
-
+        $this->validatedData = $this->validate([
+            'name' => 'required',
+            'Description' => 'required',
+            'Price' => 'required|numeric',
+            'imageProduct' => 'required|image|max:2048',
+            'Category_id' => 'required',
+            'SubCategory_id' => 'required',
+        ]);
         if ($this->imageProduct) {
 
             $path = $this->imageProduct->store('images', 'Images');

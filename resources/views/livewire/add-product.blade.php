@@ -5,7 +5,7 @@
                         <div class="content-header">
                             <h2 class="content-title">Add New Product</h2>
                             <div>
-                                
+                              {{$validatedData}}
                             </div>
                         </div>
                     </div>
@@ -18,32 +18,44 @@
                                 <form wire:submit.prevent="insertProduct"  enctype="multipart/form-data">
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Product title</label>
-                                        <input type="text" placeholder="Type here" class="form-control" id="product_name" wire:model="name" />
+                                        <input type="text" placeholder="Type here" class="form-control mb-2" id="product_name" wire:model="name" />
+                                        @error('name')
+                                         <div class="alert alert-danger">{{$message}}</div>    
+                                        @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Full description</label>
-                                        <textarea placeholder="Type here" class="form-control" rows="4" wire:model="Description"></textarea>
+                                        <textarea placeholder="Type here" class="form-control mb-2" rows="4" wire:model="Description"></textarea>
+                                        @error('Description')
+                                         <div class="alert alert-danger">{{$message}}</div>    
+                                        @enderror
                                     </div>
                                     <div class="row">
                                         
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Price</label>
-                                        <input type="text" placeholder="Type here" class="form-control" id="product_name" wire:model="Price" />
+                                        <input type="text" placeholder="Type here" class="form-control mb-2" id="product_name" wire:model="Price" />
+                                        @error('Price')
+                                        <div class="alert alert-danger">{{$message}}</div>    
+                                       @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Category</label>
                                         
-                                        <select class="form-control" wire:model="Category_id">   
+                                    <select class="form-control mb-2" wire:model="Category_id">   
                                         <option value="">choose category</option>
                                             @foreach($Categoreis as $Category)
                                     <option value="{{$Category->id}}">{{$Category->name}}</option>
                                     
                                            @endforeach
                                      </select>
+                                     @error('Category_id')
+                                     <div class="alert alert-danger">{{$message}}</div>    
+                                    @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Sub-Category</label>
-                                        <select class="form-control" wire:model="SubCategory_id">   
+                                        <select class="form-control mb-2" wire:model="SubCategory_id">   
                                         <option value="">choose Sub category</option>
                                         @foreach($SubCategory as $SubCategory)   
 
@@ -51,10 +63,15 @@
         
                                             @endforeach
                                              </select>                                    </div>
+                                             @error('SubCategory_id')
+                                             <div class="alert alert-danger">{{$message}}</div>    
+                                            @enderror
                                     <div class="mb-4">
                                         <label for="" class="form-label">image product</label>
-                                        <input type="file" placeholder="Type here" class="form-control" id="" wire:model="imageProduct" />
-                                        @error('imageProduct') <span class="error">{{ $message }}</span> @enderror
+                                        <input type="file" placeholder="Type here" class="form-control mb-2" id="" wire:model="imageProduct" />
+                                        @error('imageProduct')
+                                        <div class="alert alert-danger">{{$message}}</div>    
+                                       @enderror
                                     </div>
                                         
                                     </div>

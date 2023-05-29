@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Laravel\Fortify\Contracts\RegisterViewResponse
      */
-    public function create(Request $request)
+    public function create(Request $request): RegisterViewResponse
     {
         return app(RegisterViewResponse::class);
     }
@@ -48,10 +48,9 @@ class RegisteredUserController extends Controller
      * @param  \Laravel\Fortify\Contracts\CreatesNewUsers  $creator
      * @return \Laravel\Fortify\Contracts\RegisterResponse
      */
-    public function store(
-        Request $request,
-        CreatesNewUsers $creator
-    ): RegisterResponse {
+    public function store(Request $request,
+                          CreatesNewUsers $creator): RegisterResponse
+    {
         event(new Registered($user = $creator->create($request->all())));
 
         $this->guard->login($user);

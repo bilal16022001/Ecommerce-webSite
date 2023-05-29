@@ -3633,7 +3633,7 @@
             },
             "time": "2023-01-15T22:24:30+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "helpers.php"
@@ -3738,7 +3738,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Flasher\\Laravel\\": ""
@@ -5112,7 +5112,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "src/functions.php"
@@ -9162,7 +9162,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "src/helpers.php"

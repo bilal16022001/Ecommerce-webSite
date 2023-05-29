@@ -50,7 +50,6 @@ class AttemptToAuthenticate
         if (Fortify::$authenticateUsingCallback) {
             return $this->handleUsingCustomCallback($request, $next);
         }
-
         if ($this->guard->attempt($request->only(Fortify::username(), 'password'), $request->boolean('remember'))) {
             if (auth("web")->user()->type == "admin") {
                 return redirect(RouteServiceProvider::HOME);
