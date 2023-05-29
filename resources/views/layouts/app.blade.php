@@ -46,8 +46,50 @@
                             <span class="text">Products</span>
                         </a>
 
+                        <div class="submenu">
+                            <a class="nav-item" href="{{route('Products')}}">
+
+                                PRODUCTS
+                             </a>
+                            <a class="nav-item" href="{{route('AddProducts')}}">
+
+                               ADD PRODUCT
+                            </a>
+                        </div>
+
                     </li>
+
+                    <li class="">
+                        <a class="menu-link" href="{{route('category')}}">
+                            <i class="icon material-icons md-shopping_bag"></i>
+                            <span class="text">Category</span>
+                        </a>
+                    </li>
+
+
                     <li class="menu-item has-submenu">
+                        <a class="menu-link" href="{{route('Products')}}">
+                            <i class="icon material-icons md-shopping_bag"></i>
+                            <span class="text">Sub Category</span>
+                        </a>
+
+                        <div class="submenu">
+                            <a class="nav-item" href="{{route('Products')}}">
+
+                                Sub Ctegory
+                             </a>
+                            <a class="nav-item" href="{{route('AddProducts')}}">
+
+                               ADD Sub Category
+                            </a>
+                        </div>
+
+                    </li>
+
+
+
+
+                    <li class="">
                         <a class="menu-link" href="{{route('Orders')}}">
                             <i class="icon material-icons md-shopping_cart"></i>
                             <span class="text">Orders</span>
@@ -55,23 +97,20 @@
 
                     </li>
 
-                    <li class="menu-item has-submenu">
-                        <a class="menu-link" href="{{route('AddProducts')}}">
-                            <i class="icon material-icons md-add_box"></i>
-                            <span class="text">Add product</span>
-                        </a>
 
-                    </li>
 
-                    <li class="menu-item has-submenu">
+                    <li class="">
                         <a class="menu-link" href="page-form-product-1.html">
                             <i class="icon material-icons md-add_box"></i>
                             <span class="text">Report</span>
                         </a>
 
+
                     </li>
 
-                    <li class="menu-item has-submenu">
+
+
+                    <li class="">
                         <a class="menu-link" href="page-form-product-1.html">
                             <i class="icon material-icons md-add_box"></i>
                             <span class="text">Search</span>
@@ -80,7 +119,7 @@
                     </li>
 
 
-                    <li class="menu-item has-submenu">
+                    <li class="">
                         <a class="menu-link" href="#">
                             <i class="icon material-icons md-person"></i>
                             <span class="text">Account</span>
@@ -97,6 +136,7 @@
                 <br />
             </nav>
         </aside>
+
         <main class="main-wrap">
             <header class="main-header navbar">
                 <div class="col-search">
@@ -129,13 +169,13 @@
 
         </main>
         <script src="{{asset('assets/dashboard/js/vendors/jquery-3.6.0.min.js')}}"></script>
-        <script src="{{asset('assets/js/vendors/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('assets/js/vendors/select2.min.js')}}"></script>
-        <script src="{{asset('assets/js/vendors/perfect-scrollbar.js')}}"></script>
-        <script src="{{asset('assets/js/vendors/jquery.fullscreen.min.js')}}"></script>
-        <script src="{{asset('assets/js/vendors/chart.js')}}"></script>
+        <script src="{{asset('assets/dashboard/js/vendors/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('assets/dashboard/js/vendors/select2.min.js')}}"></script>
+        <script src="{{asset('assets/dashboard/js/vendors/perfect-scrollbar.js')}}"></script>
+        <script src="{{asset('assets/dashboard/js/vendors/jquery.fullscreen.min.js')}}"></script>
+        <script src="{{asset('assets/dashboard/js/vendors/chart.js')}}"></script>
         <!-- Main Script -->
-        <script src="{{asset('assets/js/main.js?v=1.1')}}" type="text/javascript"></script>
+        <script src="{{asset('assets//dashboard/js/main.js?v=1.1')}}" type="text/javascript"></script>
         <script src="{{asset('assets/js/custom-chart.js')}}" type="text/javascript"></script>
         {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>

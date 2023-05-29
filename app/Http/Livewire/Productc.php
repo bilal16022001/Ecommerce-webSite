@@ -24,7 +24,6 @@ class Productc extends Component
 
         $product->delete();
         session()->flash('success', 'Product deleted successfully.');
-      //$this->emit('deleteproduct');
        return redirect()->route("Products");
 
   }

@@ -7,7 +7,7 @@
             </div>
             <div>
 
-                <a href=" {{ route('AddProducts') }} " class="btn btn-primary btn-sm rounded">Create new</a>
+                <a href=" {{ route('AddProducts') }} " class="btn btn-primary btn-sm rounded">Add Product </a>
             </div>
         </div>
         <div class="card mb-4">

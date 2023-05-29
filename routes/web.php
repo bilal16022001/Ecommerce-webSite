@@ -12,6 +12,8 @@ use App\Http\Livewire\Productc;
 use App\Http\Livewire\Order;
 use App\Http\Livewire\AddProduct;
 use App\Http\Livewire\EditProduct;
+use App\Http\Livewire\categoryc;
+use App\Http\Livewire\AddCategory;
 
 
 /*
@@ -34,6 +36,9 @@ Route::get("/Checkout", CheckOutComponent::class)->name("Checkout");
 Route::get("/Account", AccountComponent::class)->name("Account");
 Route::get("/Products", Productc::class)->name("Products");
 Route::get("/Orders", Order::class)->name("Orders");
+Route::get("/category", categoryc::class)->name("category");
+Route::get("/AddCategory", AddCategory::class)->name("AddCategory");
+
 Route::get("/AddProducts", AddProduct::class)->name("AddProducts");
 Route::get("/EditProduct/{id}", EditProduct::class)->name("EditProduct");
 Route::middleware([

@@ -21,7 +21,7 @@ class AddProduct extends Component
     public $SubCategory;
     public $Category_id;
     public $SubCategory_id;
-    public $validatedData;
+
 
     public function render()
     {
@@ -33,7 +33,7 @@ class AddProduct extends Component
 
     public function insertProduct()
     {
-        $this->validatedData = $this->validate([
+         $this->validate([
             'name' => 'required',
             'Description' => 'required',
             'Price' => 'required|numeric',
