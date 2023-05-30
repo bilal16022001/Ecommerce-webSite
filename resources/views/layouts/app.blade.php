@@ -68,22 +68,11 @@
                     </li>
 
 
-                    <li class="menu-item has-submenu">
-                        <a class="menu-link" href="{{route('Products')}}">
+                    <li class="">
+                        <a class="menu-link" href="{{route('SubCategory')}}">
                             <i class="icon material-icons md-shopping_bag"></i>
                             <span class="text">Sub Category</span>
                         </a>
-
-                        <div class="submenu">
-                            <a class="nav-item" href="{{route('Products')}}">
-
-                                Sub Ctegory
-                             </a>
-                            <a class="nav-item" href="{{route('AddProducts')}}">
-
-                               ADD Sub Category
-                            </a>
-                        </div>
 
                     </li>
 

@@ -41,9 +41,9 @@
                                     </div>
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Category</label>
-
+                                    
                                     <select class="form-control mb-2" wire:model="Category_id">
-                                        <option value="">choose category</option>
+                                        <option value="">choose category </option>
                                             @foreach($Categoreis as $Category)
                                     <option value="{{$Category->id}}">{{$Category->name}}</option>
 
@@ -58,9 +58,9 @@
                                         <select class="form-control mb-2" wire:model="SubCategory_id">
                                         <option value="">choose Sub category</option>
                                         @foreach($SubCategory as $SubCategory)
-
+                                            @if($SubCategory->id== $Category_id)
                                             <option value="{{$SubCategory->id}}">{{$SubCategory->name}}</option>
-
+                                            @endif
                                             @endforeach
                                              </select>                                    </div>
                                              @error('SubCategory_id')

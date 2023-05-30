@@ -14,7 +14,7 @@ use App\Http\Livewire\AddProduct;
 use App\Http\Livewire\EditProduct;
 use App\Http\Livewire\categoryc;
 use App\Http\Livewire\AddCategory;
-
+use App\Http\Livewire\SubCategoryC;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +37,11 @@ Route::get("/Account", AccountComponent::class)->name("Account");
 Route::get("/Products", Productc::class)->name("Products");
 Route::get("/Orders", Order::class)->name("Orders");
 Route::get("/category", categoryc::class)->name("category");
-Route::get("/AddCategory", AddCategory::class)->name("AddCategory");
-
 Route::get("/AddProducts", AddProduct::class)->name("AddProducts");
 Route::get("/EditProduct/{id}", EditProduct::class)->name("EditProduct");
+Route::get("/SubCategory", SubCategoryC::class)->name("SubCategory");
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

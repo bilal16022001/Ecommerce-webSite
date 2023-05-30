@@ -4,18 +4,20 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Category;
-
+use Livewire\WithPagination;
 
 
 
 class Categoryc extends Component
 {
+    use WithPagination;
     public $Name;
     public $categories;
     public $category_id;
     public $category;
     public $editName;
     public $delete;
+    public $perPage = 10;
 
     public function insertcategory()
     {
