@@ -77,9 +77,15 @@
                                             @enderror                                 </div>
                                     <div class="mb-4">
                                         <label for="" class="form-label">image product</label>
-                                        <input type="file" value="efr.jpg"  class="form-control"  wire:model="imageProduct" />
+                
+                                        <input type="file"  class="form-control"  wire:model="imageProduct" />
                                         @error('imageProduct') <span class="error">{{ $message }}</span> @enderror
-                                        <img src="{{asset('attachments/'. $imageProduct)}}" />
+                                      
+                                        @if($imageProduct)
+                                        <img src="{{ $imageProduct->temporaryUrl() }}" >
+                                        @else
+                                        <img src="{{asset('attachments/'. $OldImage)}}" />
+                                        @endif
                                     </div>
 
                                     </div>
