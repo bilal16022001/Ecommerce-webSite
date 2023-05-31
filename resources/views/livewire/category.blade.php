@@ -21,7 +21,7 @@
                                             <div class="mb-4">
                                                 <label for="product_name" class="form-label">Category</label>
                                                 <input type="text" placeholder="Type here" class="form-control mb-2" id="product_name" wire:model="Name" />
-                                                @error('name')
+                                                @error('Name')
                                                  <div class="alert alert-danger">{{$message}}</div>
                                                 @enderror
                                             </div>
@@ -60,7 +60,7 @@
                                                 <a href="" class="btn btn-sm font-sm rounded btn-brand" data-bs-toggle="modal" data-bs-target="#exampleModal" wire:click.prevent="getId({{ $cat->id }})" ></i> Edit </a>
                                                 <a href="#" wire:click.prevent="deleteCategory({{ $cat->id }})" class="btn btn-sm font-sm btn-light rounded" data-bs-toggle="modal" data-bs-target="#delete"> <i class="material-icons md-delete_forever"></i> Delete </a>
                                             </td>
-                                   
+
                                         </tr>
                                         @endforeach
 
@@ -72,7 +72,7 @@
                         </div>
 
                         <!-- card-body end// -->
-                    
+
                     </div>
                     <!-- card end// -->
                     <!---start edit modal--->
@@ -88,7 +88,7 @@
                                         <div class="mb-4">
                                             <label for="product_name" class="form-label">Category</label>
                                             <input type="text" placeholder="Type here" class="form-control mb-2" id="product_name" wire:model="Name" />
-                                            @error('name')
+                                            @error('Name')
                                              <div class="alert alert-danger">{{$message}}</div>
                                             @enderror
                                         </div>
@@ -98,7 +98,7 @@
                                           </div>
                                     </form>
                                 </div>
-                            
+
                             </div>
                         </div>
                     </div>
@@ -123,6 +123,6 @@
                     </div>
                     <!----end delete modal---->
                 </section>
-                
+
 
     </div>

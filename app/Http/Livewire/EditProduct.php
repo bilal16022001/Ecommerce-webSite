@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Product;
 use Livewire\WithFileUploads;
+use Illuminate\Validation\Rule;
 
 
 class EditProduct extends Component
@@ -22,10 +23,12 @@ class EditProduct extends Component
     public $category_id;
     public $SubCat_id;
     public $imageProduct;
+    public $OldImage;
+
 
     public function mount($id)
     {
-        $product = Product::find($id);
+        $product = Product::findOrFail($id);
         $this->pro_id= $product->id;
         $this->name = $product->name;
         $this->description = $product->description;
@@ -33,11 +36,37 @@ class EditProduct extends Component
         $this->category_id = $product->Category_id;
         $this->SubCat_id = $product->SubCat_id;
         $this->imageProduct = $product->imageProduct;
+        $this->OldImage = $product->OldImage;
     }
+
+    public function updated($fields){
+
+
+
+
+        $this->validateOnly($fields,
+        [
+            'name' => ['required',Rule::unique('products', 'name')->ignore($this->pro_id),],
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'imageProduct' => 'required|image|max:2048',
+            'category_id' => 'required',
+            'SubCat_id' => 'required',
+        ]);
+    }
+
 
 
      public function UpdateProduct(){
 
+        $this->validate([
+            'name' => ['required',Rule::unique('products', 'name')->ignore($this->pro_id),],
+            'description' => 'required',
+            'price' => 'required|numeric',
+
+            'category_id' => 'required',
+            'SubCat_id' => 'required',
+        ]);
          $product = Product::findOrFail($this->pro_id);
 
             $product->name = $this->name;
@@ -48,12 +77,18 @@ class EditProduct extends Component
 
             if ($this->imageProduct) {
 
+                $path= $this->OldImage;
+             }
+            else{
+
                 $path = $this->imageProduct->store('images', 'Images');
             }
             $product->imageProduct = $path;
 
             // Save the changes
             $product->save();
+            session()->flash('success', 'Product has been added .');
+
             return redirect()->route("Products");
      }
 

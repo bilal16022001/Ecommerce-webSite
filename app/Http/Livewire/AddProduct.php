@@ -48,7 +48,7 @@ class AddProduct extends Component
     public function insertProduct()
     {
          $this->validate([
-            'name' => 'required',
+            'name' => 'required|unique:products,name',
             'Description' => 'required',
             'Price' => 'required|numeric',
             'imageProduct' => 'required|image|max:2048',
@@ -69,6 +69,7 @@ class AddProduct extends Component
             "Category_id" => $this->Category_id,
             "SubCat_id" => $this->SubCategory_id,
         ]);
+        session()->flash('success', 'Product has been added .');
 
         return redirect()->route("Products");
     }

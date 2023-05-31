@@ -22,6 +22,11 @@ class Categoryc extends Component
     public function insertcategory()
     {
 
+        $this->validate([
+            'Name' => 'required|unique:categories,name',
+
+        ]);
+
         Category::create([
             "name" => $this->Name,
         ]);
@@ -29,6 +34,18 @@ class Categoryc extends Component
         session()->flash('success', 'Category added successfully.');
 
         return redirect()->route("category");
+    }
+
+    public function updated($fields){
+
+        $this->validateOnly($fields,
+        [
+
+            'Name' => 'required|unique:categories,name',
+
+        ]);
+
+
     }
 
     public function getId($id)
@@ -39,6 +56,10 @@ class Categoryc extends Component
     }
     public function UpdateCategory()
     {
+        $this->validate([
+            'Name' => 'required|unique:categories,name',
+
+        ]);
 
         $category = Category::findOrFail($this->category_id);
         $category->Name = $this->Name;
