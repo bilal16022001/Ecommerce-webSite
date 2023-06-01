@@ -17,6 +17,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Livewire\\AddProduct' => $baseDir . '/app/Http/Livewire/AddProduct.php',
+    'App\\Http\\Livewire\\AddToCart' => $baseDir . '/app/Http/Livewire/AddToCart.php',
     'App\\Http\\Livewire\\Categoryc' => $baseDir . '/app/Http/Livewire/Categoryc.php',
     'App\\Http\\Livewire\\EditProduct' => $baseDir . '/app/Http/Livewire/EditProduct.php',
     'App\\Http\\Livewire\\Order' => $baseDir . '/app/Http/Livewire/Order.php',

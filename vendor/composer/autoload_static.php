@@ -608,6 +608,7 @@ class ComposerStaticInit0154fdaeb04883529da278357df5481b
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Livewire\\AddProduct' => __DIR__ . '/../..' . '/app/Http/Livewire/AddProduct.php',
+        'App\\Http\\Livewire\\AddToCart' => __DIR__ . '/../..' . '/app/Http/Livewire/AddToCart.php',
         'App\\Http\\Livewire\\Categoryc' => __DIR__ . '/../..' . '/app/Http/Livewire/Categoryc.php',
         'App\\Http\\Livewire\\EditProduct' => __DIR__ . '/../..' . '/app/Http/Livewire/EditProduct.php',
         'App\\Http\\Livewire\\Order' => __DIR__ . '/../..' . '/app/Http/Livewire/Order.php',
