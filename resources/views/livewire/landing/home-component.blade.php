@@ -44,24 +44,25 @@
                     <div class="title">
                         <h3>Featured Categories</h3>
                         <ul class="list-inline nav nav-tabs links">
-                            <li class="list-inline-item nav-item"><a class="nav-link" href="shop-grid-right.html">Cake & Milk</a></li>
+                            {{-- <li class="list-inline-item nav-item"><a class="nav-link" href="shop-grid-right.html">Cake & Milk</a></li>
                             <li class="list-inline-item nav-item"><a class="nav-link" href="shop-grid-right.html">Coffes & Teas</a></li>
                             <li class="list-inline-item nav-item"><a class="nav-link active" href="shop-grid-right.html">Pet Foods</a></li>
-                            <li class="list-inline-item nav-item"><a class="nav-link" href="shop-grid-right.html">Vegetables</a></li>
+                            <li class="list-inline-item nav-item"><a class="nav-link" href="shop-grid-right.html">Vegetables</a></li> --}}
                         </ul>
                     </div>
                     <div class="slider-arrow slider-arrow-2 flex-right carausel-10-columns-arrow" id="carausel-10-columns-arrows"></div>
                 </div>
                 <div class="carausel-10-columns-cover position-relative">
                     <div class="carausel-10-columns" id="carausel-10-columns">
-                       
+                       @foreach($catrgory as $item)
                         <div class="card-2 bg-11 wow animate__animated animate__fadeInUp" data-wow-delay="0s">
                             <figure class="img-hover-scale overflow-hidden">
                                 <a href="shop-grid-right.html"><img src="assets/landing/imgs/shop/cat-15.png" alt="" /></a>
                             </figure>
-                            <h6><a href="shop-grid-right.html">Headphone</a></h6>
-                            <span>87 items</span>
+                            <h6><a href="shop-grid-right.html">{{$item->name}}</a></h6>
+                            <span>{{$item->product ? $item->product->count() . " item" : "0 item"}}</span>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -111,7 +112,7 @@
             <div class="container">
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
                     <h3>Products</h3>
-                    <ul class="nav nav-tabs links" id="myTab" role="tablist">
+                    {{-- <ul class="nav nav-tabs links" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">All</button>
                         </li>
@@ -133,7 +134,7 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="nav-tab-seven" data-bs-toggle="tab" data-bs-target="#tab-seven" type="button" role="tab" aria-controls="tab-seven" aria-selected="false">Fruits</button>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content" id="myTabContent">
@@ -142,13 +143,15 @@
                          
                      
                             <!--end product card-->
+                            @foreach(\App\Models\Product::all() as $item)
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/landing/imgs/shop/product-6-1.jpg" alt="" />
-                                                <img class="hover-img" src="assets/landing/imgs/shop/product-6-2.jpg" alt="" />
+                                                <img src="{{asset('attachments/'. $item->imageProduct)}}" />
+                                                {{-- <img class="default-img" src="assets/landing/imgs/shop/product-6-1.jpg" alt="" /> --}}
+                                                {{-- <img class="hover-img" src="assets/landing/imgs/shop/product-6-2.jpg" alt="" /> --}}
                                             </a>
                                         </div>
                                         <div class="product-action-1">
@@ -158,23 +161,18 @@
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Hodo Foods</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Chobani Complete Vanilla Greek Yogurt</a></h2>
+                                      
+                                        <h2><a href="shop-product-right.html">{{$item->name}}</a></h2>
                                         <div class="product-rate-cover">
                                             <div class="product-rate d-inline-block">
                                                 <div class="product-rating" style="width: 90%"></div>
                                             </div>
                                             <span class="font-small ml-5 text-muted"> (4.0)</span>
                                         </div>
-                                        <div>
-                                            <span class="font-small text-muted">By <a href="vendor-details-1.html">NestFood</a></span>
-                                        </div>
                                         <div class="product-card-bottom">
                                             <div class="product-price">
-                                                <span>$54.85</span>
-                                                <span class="old-price">$55.8</span>
+                                                <span>${{$item->price}}</span>
+                                        
                                             </div>
                                             <div class="add-cart">
                                                 <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
@@ -183,6 +181,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                             <!--end product card-->
                           
                           
@@ -2870,71 +2869,7 @@
             <div class="container">
                 <div class="row">
                     
-                    <div class="col-md-6 mb-md-0 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                        <h4>Trending Products</h4>
-                        <div class="product-list-small animated animated">
-                            <article class="row align-items-center hover-up">
-                                <figure class="col-md-4 mb-0">
-                                    <a href="shop-product-right.html"><img src="assets/landing/imgs/shop/thumbnail-4.jpg" alt="" /></a>
-                                </figure>
-                                <div class="col-md-8 mb-0">
-                                    <h6>
-                                        <a href="shop-product-right.html">Organic Cage-Free Grade A Large Brown Eggs</a>
-                                    </h6>
-                                    <div class="product-rate-cover">
-                                        <div class="product-rate d-inline-block">
-                                            <div class="product-rating" style="width: 90%"></div>
-                                        </div>
-                                        <span class="font-small ml-5 text-muted"> (4.0)</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>$32.85</span>
-                                        <span class="old-price">$33.8</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row align-items-center hover-up">
-                                <figure class="col-md-4 mb-0">
-                                    <a href="shop-product-right.html"><img src="assets/landing/imgs/shop/thumbnail-5.jpg" alt="" /></a>
-                                </figure>
-                                <div class="col-md-8 mb-0">
-                                    <h6>
-                                        <a href="shop-product-right.html">Seeds of Change Organic Quinoa, Brown, & Red Rice</a>
-                                    </h6>
-                                    <div class="product-rate-cover">
-                                        <div class="product-rate d-inline-block">
-                                            <div class="product-rating" style="width: 90%"></div>
-                                        </div>
-                                        <span class="font-small ml-5 text-muted"> (4.0)</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>$32.85</span>
-                                        <span class="old-price">$33.8</span>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row align-items-center hover-up">
-                                <figure class="col-md-4 mb-0">
-                                    <a href="shop-product-right.html"><img src="assets/landing/imgs/shop/thumbnail-6.jpg" alt="" /></a>
-                                </figure>
-                                <div class="col-md-8 mb-0">
-                                    <h6>
-                                        <a href="shop-product-right.html">Naturally Flavored Cinnamon Vanilla Light Roast Coffee</a>
-                                    </h6>
-                                    <div class="product-rate-cover">
-                                        <div class="product-rate d-inline-block">
-                                            <div class="product-rating" style="width: 90%"></div>
-                                        </div>
-                                        <span class="font-small ml-5 text-muted"> (4.0)</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>$32.85</span>
-                                        <span class="old-price">$33.8</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
+                    
                     <div class="col-md-6 mb-sm-5 mb-md-0 d-none d-lg-block wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                         <h4 class="section-title style-1 mb-30 animated animated">Recently added</h4>
                         <div class="product-list-small animated animated">

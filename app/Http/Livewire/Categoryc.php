@@ -36,16 +36,17 @@ class Categoryc extends Component
         return redirect()->route("category");
     }
 
-    public function updated($fields){
+    public function updated($fields)
+    {
 
-        $this->validateOnly($fields,
-        [
+        $this->validateOnly(
+            $fields,
+            [
 
-            'Name' => 'required|unique:categories,name',
+                'Name' => 'required|unique:categories,name',
 
-        ]);
-
-
+            ]
+        );
     }
 
     public function getId($id)

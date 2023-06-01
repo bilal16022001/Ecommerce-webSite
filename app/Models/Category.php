@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $guarded = [];
+
+    public function product()
+    {
+        return $this->hasOne("\App\Models\Product", "Category_id");
+    }
 }
