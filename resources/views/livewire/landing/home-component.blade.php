@@ -150,8 +150,7 @@
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
                                                 <img src="{{asset('attachments/'. $item->imageProduct)}}" />
-                                                {{-- <img class="default-img" src="assets/landing/imgs/shop/product-6-1.jpg" alt="" /> --}}
-                                                {{-- <img class="hover-img" src="assets/landing/imgs/shop/product-6-2.jpg" alt="" /> --}}
+                            
                                             </a>
                                         </div>
                                         <div class="product-action-1">
@@ -171,11 +170,13 @@
                                         </div>
                                         <div class="product-card-bottom">
                                             <div class="product-price">
-                                                <span>${{$item->price}}</span>
+                                                <span>{{$item->price}}</span>
                                         
                                             </div>
                                             <div class="add-cart">
-                                                <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                                <a class="add" wire:click.prevent="addToCart({{$item->id}},'{{$item->name}}',{{$item->price}})">
+                                                    <i class="fi-rs-shopping-cart mr-5"></i>Add
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

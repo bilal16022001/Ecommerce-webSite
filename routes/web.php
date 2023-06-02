@@ -15,7 +15,7 @@ use App\Http\Livewire\EditProduct;
 use App\Http\Livewire\categoryc;
 use App\Http\Livewire\AddCategory;
 use App\Http\Livewire\SubCategoryC;
-use App\Http\Livewire\AddToCart;
+use App\Http\Livewire\landing\AddToCart;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +41,6 @@ Route::get("/category", categoryc::class)->name("category");
 Route::get("/AddProducts", AddProduct::class)->name("AddProducts");
 Route::get("/EditProduct/{id}", EditProduct::class)->name("EditProduct");
 Route::get("/SubCategory", SubCategoryC::class)->name("SubCategory");
-Route::get('/add-to-cart', AddToCart::class)->name("AddToCart");
 
 
 Route::middleware([
