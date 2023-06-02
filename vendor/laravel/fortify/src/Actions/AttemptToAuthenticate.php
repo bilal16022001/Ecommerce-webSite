@@ -2,7 +2,6 @@
 
 namespace Laravel\Fortify\Actions;
 
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Validation\ValidationException;
@@ -50,12 +49,12 @@ class AttemptToAuthenticate
         if (Fortify::$authenticateUsingCallback) {
             return $this->handleUsingCustomCallback($request, $next);
         }
-        if ($this->guard->attempt($request->only(Fortify::username(), 'password'), $request->boolean('remember'))) {
-            if (auth("web")->user()->type == "admin") {
-                return redirect(RouteServiceProvider::HOME);
-            } else {
-                return redirect(RouteServiceProvider::USERHOME);
-            }
+
+        if ($this->guard->attempt(
+            $request->only(Fortify::username(), 'password'),
+            $request->boolean('remember'))
+        ) {
+            return $next($request);
         }
 
         $this->throwFailedAuthenticationException($request);
@@ -72,7 +71,7 @@ class AttemptToAuthenticate
     {
         $user = call_user_func(Fortify::$authenticateUsingCallback, $request);
 
-        if (!$user) {
+        if (! $user) {
             $this->fireFailedEvent($request);
 
             return $this->throwFailedAuthenticationException($request);

@@ -12,7 +12,7 @@ class HomeComponent extends Component
 
     public function addToCart($productId, $productName, $productPrice)
     {
-        Cart::add($productId, $productName, $productPrice)->associate("\App\Models\Product");
+        Cart::add($productId, $productName,1, $productPrice)->associate("\App\Models\Product");
         session()->flash('susccess', 'item added successfully.');
         return redirect()->route("Shopcart");
     }
