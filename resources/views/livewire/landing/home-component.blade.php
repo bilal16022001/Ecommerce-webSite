@@ -150,7 +150,7 @@
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
                                                 <img src="{{asset('attachments/'. $item->imageProduct)}}" />
-                            
+    
                                             </a>
                                         </div>
                                         <div class="product-action-1">
