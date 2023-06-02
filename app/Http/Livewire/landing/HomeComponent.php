@@ -13,13 +13,16 @@ class HomeComponent extends Component
     public function addToCart($productId, $productName, $productPrice)
     {
         Cart::add($productId, $productName,1, $productPrice)->associate("\App\Models\Product");
-        session()->flash('susccess', 'item added successfully.');
-        return redirect()->route("Shopcart");
+        $this->emit('CartCount');
+
+
     }
+
     public function render()
     {
+
         $this->catrgory = Category::with("product")->get();
         $title = 'Home';
-        return view('livewire.landing/home-component')->layout('layouts.guest', ['title' => $title]);
+        return view('livewire.landing.home-component')->layout('layouts.guest', ['title' => $title]);
     }
 }

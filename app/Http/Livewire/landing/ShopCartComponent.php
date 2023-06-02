@@ -7,26 +7,23 @@ use Cart;
 
 class ShopCartComponent extends Component
 {
-    // public $quantity;
 
-    // public function addToCart($productId, $productName, $productPrice)
-    // {
-    //     Cart::add($productId, $productName, 3, $productPrice)->associate("\App\Models\Product");
-    //     session()->flash('susccess', 'item added successfully.');
-    //     return redirect()->route("Shopcart");
-    // }
-
+    
     public function increaseQuantity($rowId)
     {
         $product = Cart::get($rowId);
         $qty = $product->qty + 1;
         Cart::update($rowId, $qty);
+        $this->emit('CartCount');
+
     }
     public function decreaseQuantity($rowId)
     {
         $product = Cart::get($rowId);
         $qty = $product->qty - 1;
         Cart::update($rowId, $qty);
+        $this->emit('CartCount');
+
     }
 
     public function render()
