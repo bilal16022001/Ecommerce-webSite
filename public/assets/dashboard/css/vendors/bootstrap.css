@@ -2030,6 +2030,7 @@ progress {
 
 .table > :not(:last-child) > :last-child > * {
   border-bottom-color: currentColor;
+
 }
 
 .caption-top {

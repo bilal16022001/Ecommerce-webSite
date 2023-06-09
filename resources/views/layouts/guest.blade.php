@@ -22,62 +22,8 @@
 <body>
 
     <header class="header-area header-style-1 header-height-2">
-        <div class="mobile-promotion">
-            <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>
-        </div>
-        <div class="header-top header-top-ptb-1 d-none d-lg-block">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-3 col-lg-4">
-                        <div class="header-info">
-                            <ul>
-                                <li><a href="page-about.htlm">About Us</a></li>
-                                <li><a href="page-account.html">My Account</a></li>
-                                <li><a href="shop-order.html">Order Tracking</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-4">
-                        
-                    </div>
-                    <div class="col-xl-3 col-lg-4">
-                        <div class="header-info header-info-right">
-                            <ul>
-                                <li>Need help? Call Us: <strong class="text-brand"> + 1800 900</strong></li>
-                                <li>
-                                    <a class="language-dropdown-active" href="#">English <i class="fi-rs-angle-small-down"></i></a>
-                                    <ul class="language-dropdown">
-                                        <li>
-                                            <a href="#"><img src="{{asset('assets/landing/imgs/theme/flag-fr.png')}}" alt="" />Français</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img src="{{asset('assets/landing/imgs/theme/flag-dt.png')}}" alt="" />Deutsch</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img src="{{asset('assets/landing/imgs/theme/flag-ru.png')}}" alt="" />Pусский</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="language-dropdown-active" href="#">USD <i class="fi-rs-angle-small-down"></i></a>
-                                    <ul class="language-dropdown">
-                                        <li>
-                                            <a href="#"><img src="{{asset('assets/landing/imgs/theme/flag-fr.png')}}" alt="" />INR</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img src="{{asset('assets/landing/imgs/theme/flag-dt.png')}}" alt="" />MBP</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img src="{{asset('assets/landing/imgs/theme/flag-ru.png')}}" alt="" />EU</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
         <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
             <div class="container">
                 <div class="header-wrap">
@@ -106,22 +52,28 @@
                         <div class="header-action-right">
                             <div class="header-action-2">
                                 <div class="search-location">
-                                    
+
                                 </div>
-                               
-                                
+
+
                                 <div class="header-action-icon-2">
                                     @livewire("cart-componenet")
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                         <ul>
                                           @foreach(Cart::content() as $item)
                                             <li>
+
                                                 <div class="shopping-cart-img">
-                                                    <a href="shop-product-right.html"><img alt="Nest" src="{{asset('attachments/' . $item->model->imageProduct)}}" /></a>
+                                                <a href="{{route("Shopcart")}}" class="outline">View cart</a>
+                                                    @if( $item->model)
+                                                    <a href=""><img alt="Nest" src="{{asset('attachments/' . $item->model->imageProduct)}}" /></a>
+                                                    @else
+                                                    <a href=""><img alt="Nest" src="" /></a>
+                                                    @endif
                                                 </div>
                                                 <div class="shopping-cart-title">
-                                                    <h4><a href="shop-product-right.html">{{$item->model->name}}</a></h4>
-                                                    <h4>${{$item->model->price}}</h4>
+                                                    <h4><a href="shop-product-right.html">{{$item->name}}</a></h4>
+                                                    <h4>${{$item->price}}</h4>
                                                 </div>
                                                 <div class="shopping-cart-delete">
                                                     <a href="#"><i class="fi-rs-cross-small"></i></a>
@@ -154,7 +106,7 @@
                                             <li>
                                                 <a href="{{route("login")}}"><i class="fi fi-rs-user mr-10"></i>Sign in</a>
                                             </li>
-                                          
+
                                         </ul>
                                     </div>
                                 </div>
@@ -173,8 +125,14 @@
                                             <li>
                                                 <a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
                                             </li>
-                                            <li>
-                                                <a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
+                                            <li><form action="{{ route('logout') }}" method="POST" id="logoutform">
+                                                @csrf
+                                            </form>
+                                            <a class="dropdown-item ai-icon"
+                                                onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                                                <i class="text-red fa fa-sign-out-alt"></i>
+                                                <span class="ml-2">Sign out</span>
+                                            </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -263,14 +221,14 @@
                             <nav>
                                 <ul>
                                     <li class=""> <a href="{{route("Home")}}">Home</a></li>
-                                  
+
                                     <li>
                                         <a href="{{route("About")}}">About</a>
                                     </li>
                                     <li>
                                         <a href="{{route("Shop")}}">Shop</a>
                                     </li>
-                                   
+
                                     <li>
                                      <a href="{{route("Contact")}}">Contact</a>
                                     </li>
@@ -376,15 +334,15 @@
                     <nav>
                         <ul>
                             <li class=""> <a href="{{route("Home")}}">Home</a></li>
-                          
+
                             <li>
                                 <a href="{{route("About")}}">About</a>
                             </li>
                             <li>
                                 <a href="{{route("Shop")}}">Shop</a>
-                             
+
                             </li>
-                           
+
                             <li>
                                 <a href="{{route("Contact")}}">Contact</a>
                             </li>
@@ -652,6 +610,7 @@
     <script src="{{asset('assets/landing/js/plugins/jquery.theia.sticky.js')}}"></script>
     <script src="{{asset('assets/landing/js/plugins/jquery.elevatezoom.js')}}"></script>
     <!-- Template  JS -->
+
     <script src="{{asset('assets/landing/js/main.js?v=5.6')}}"></script>
     <script src="{{asset('assets/landing/js/shop.js?v=5.6')}}"></script>
     @livewireScripts

@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('adresses', function (Blueprint $table) {
             $table->id();
-            $table->ForeignId("Client_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade");
+            $table->ForeignId("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade");
+            $table->string("FirstName");
+            $table->string("LastName");
+            $table->string("Address");
+            $table->string("country");
+            $table->string("city");
+            $table->string("zipcode");
+            $table->string("phone");
+            $table->string("email");
+
             $table->timestamps();
         });
     }

@@ -1,5 +1,5 @@
 <div>
-    
+
 
 <main class="main">
         <section class="home-slider position-relative mb-30">
@@ -112,36 +112,14 @@
             <div class="container">
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
                     <h3>Products</h3>
-                    {{-- <ul class="nav nav-tabs links" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">All</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Milks & Dairies</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">Coffes & Teas</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-four" data-bs-toggle="tab" data-bs-target="#tab-four" type="button" role="tab" aria-controls="tab-four" aria-selected="false">Pet Foods</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-five" data-bs-toggle="tab" data-bs-target="#tab-five" type="button" role="tab" aria-controls="tab-five" aria-selected="false">Meats</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-six" data-bs-toggle="tab" data-bs-target="#tab-six" type="button" role="tab" aria-controls="tab-six" aria-selected="false">Vegetables</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-seven" data-bs-toggle="tab" data-bs-target="#tab-seven" type="button" role="tab" aria-controls="tab-seven" aria-selected="false">Fruits</button>
-                        </li>
-                    </ul> --}}
+                  
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
-                         
-                     
+
+
                             <!--end product card-->
                             @foreach(\App\Models\Product::all() as $item)
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
@@ -150,7 +128,7 @@
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
                                                 <img src="{{asset('attachments/'. $item->imageProduct)}}" />
-    
+
                                             </a>
                                         </div>
                                         <div class="product-action-1">
@@ -160,7 +138,7 @@
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
-                                      
+
                                         <h2><a href="shop-product-right.html">{{$item->name}}</a></h2>
                                         <div class="product-rate-cover">
                                             <div class="product-rate d-inline-block">
@@ -171,7 +149,7 @@
                                         <div class="product-card-bottom">
                                             <div class="product-price">
                                                 <span>{{$item->price}}</span>
-                                        
+
                                             </div>
                                             <div class="add-cart">
                                                 <a class="add" wire:click.prevent="addToCart({{$item->id}},'{{$item->name}}',{{$item->price}})">
@@ -184,10 +162,10 @@
                             </div>
                             @endforeach
                             <!--end product card-->
-                          
-                          
+
+
                             <!--end product card-->
-                      
+
                             <!--end product card-->
                         </div>
                         <!--End product-grid-4-->
@@ -2862,15 +2840,15 @@
             </div>
         </section>
         <!--Products Tabs-->
-        
+
         <!--End Best Sales-->
-      
+
         <!--End Deals-->
         <section class="section-padding mb-30">
             <div class="container">
                 <div class="row">
-                    
-                    
+
+
                     <div class="col-md-6 mb-sm-5 mb-md-0 d-none d-lg-block wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                         <h4 class="section-title style-1 mb-30 animated animated">Recently added</h4>
                         <div class="product-list-small animated animated">
@@ -2936,7 +2914,7 @@
                             </article>
                         </div>
                     </div>
-         
+
                 </div>
             </div>
         </section>

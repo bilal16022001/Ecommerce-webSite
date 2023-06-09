@@ -60,7 +60,6 @@
                                                 <a href="" class="btn btn-sm font-sm rounded btn-brand" data-bs-toggle="modal" data-bs-target="#exampleModal" wire:click.prevent="getId({{ $cat->id }})" ></i> Edit </a>
                                                 <a href="#" wire:click.prevent="deleteCategory({{ $cat->id }})" class="btn btn-sm font-sm btn-light rounded" data-bs-toggle="modal" data-bs-target="#delete"> <i class="material-icons md-delete_forever"></i> Delete </a>
                                             </td>
-
                                         </tr>
                                         @endforeach
 

@@ -4,6 +4,7 @@ namespace Laravel\Fortify\Actions;
 
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\LoginRateLimiter;
@@ -50,11 +51,15 @@ class AttemptToAuthenticate
             return $this->handleUsingCustomCallback($request, $next);
         }
 
-        if ($this->guard->attempt(
-            $request->only(Fortify::username(), 'password'),
-            $request->boolean('remember'))
-        ) {
-            return $next($request);
+        if ($this->guard->attempt($request->only(Fortify::username(), 'password'),$request->boolean('remember'))) {
+
+             if(Auth::guard('web')->user()->type =="user"){
+                return redirect("/");
+
+             }else{
+                return redirect("/dashboard");
+             }
+
         }
 
         $this->throwFailedAuthenticationException($request);

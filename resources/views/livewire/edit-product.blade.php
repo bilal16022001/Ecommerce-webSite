@@ -9,7 +9,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="card mb-4">
                             <div class="card-header">
                                 <h4>Edit Product</h4>
@@ -77,10 +77,10 @@
                                             @enderror                                 </div>
                                     <div class="mb-4">
                                         <label for="" class="form-label">image product</label>
-                
+
                                         <input type="file"  class="form-control"  wire:model="imageProduct" />
                                         @error('imageProduct') <span class="error">{{ $message }}</span> @enderror
-                                      
+
                                         @if($imageProduct)
                                         <img src="{{ $imageProduct->temporaryUrl() }}" >
                                         @else

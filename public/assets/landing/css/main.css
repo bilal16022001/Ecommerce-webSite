@@ -899,6 +899,7 @@ h5.widget-title {
 
 .text-body {
   color: #7E7E7E !important;
+  font-size: 25px;
 }
 
 .font-xxs {
@@ -5500,7 +5501,7 @@ table .product-thumbnail img {
 }
 
 .shopping-summery table > :not(caption) > * > * {
-  padding: 15px 0;
+  padding: 20px;
 }
 
 .shopping-summery table td, .shopping-summery table th, .shopping-summery table thead {
@@ -5509,7 +5510,7 @@ table .product-thumbnail img {
 
 .shopping-summery table thead th {
   background-color: #ececec;
-  padding: 18px 0;
+  padding: 23px;
   font-family: "Quicksand", sans-serif;
   font-size: 17px;
   font-weight: 700;
@@ -5525,7 +5526,7 @@ table .product-thumbnail img {
 }
 
 .shopping-summery table tbody tr img {
-  max-width: 120px;
+  /* max-width: 120px; */
   border: 1px solid #ececec;
   border-radius: 15px;
 }
@@ -10527,7 +10528,7 @@ footer .hotline img {
 }
 
 /***************************
-    Page section margin 
+    Page section margin
 ****************************/
 .mtb-0 {
   margin: 0;

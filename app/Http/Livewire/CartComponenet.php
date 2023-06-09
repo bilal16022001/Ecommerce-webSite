@@ -14,12 +14,14 @@ class CartComponenet extends Component
     {
         $this->cart = Cart::count();
     }
-    
-   
+
+
     public function updateCartCount()
     {
         $this->cart = Cart::count();
     }
+    
+
 
     public function render()
     {

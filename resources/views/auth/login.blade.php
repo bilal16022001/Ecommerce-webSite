@@ -30,14 +30,21 @@
                 <div class="card mx-auto card-login">
                     <div class="card-body">
                         <h4 class="card-title mb-4">Sign in</h4>
+
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-3">
                                 <input class="form-control" placeholder="Username or email" name="email" type="text" value="{{ __('email') }}" />
+                                @error('email')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                             </div>
                             <!-- form-group// -->
                             <div class="mb-3">
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="{{ __('Password') }}" />
+                                @error('password')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                             </div>
                             <!-- form-group// -->
                             <div class="mb-3">

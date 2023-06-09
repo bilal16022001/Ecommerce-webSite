@@ -1,39 +1,6 @@
 
 <main class="main">
-    <div class="page-header mt-30 mb-50">
-        <div class="container">
-            <div class="archive-header">
-                <div class="row align-items-center">
-                    <div class="col-xl-3">
-                        <h1 class="mb-15">Snack</h1>
-                        <div class="breadcrumb">
-                            <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                            <span></span> Shop <span></span> Snack
-                        </div>
-                    </div>
-                    <div class="col-xl-9 text-end d-none d-xl-block">
-                        <ul class="tags-list">
-                            <li class="hover-up">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Cabbage</a>
-                            </li>
-                            <li class="hover-up active">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Broccoli</a>
-                            </li>
-                            <li class="hover-up">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Artichoke</a>
-                            </li>
-                            <li class="hover-up">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Celery</a>
-                            </li>
-                            <li class="hover-up mr-0">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Spinach</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="container mb-30">
         <div class="row flex-row-reverse">
             <div class="col-lg-4-5">
@@ -51,8 +18,8 @@
                                     <span> 50 <i class="fi-rs-angle-small-down"></i></span>
                                 </div>
                             </div>
-                    
-                               
+
+
                             <div class="sort-by-dropdown">
                                 <ul>
                                     <li><a class="active" href="#">50</a></li>
@@ -85,13 +52,15 @@
                     </div>
                 </div>
                 <div class="row product-grid">
+
+                    @foreach(\App\Models\Product::all() as $item)
                     <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
-                        <div class="product-cart-wrap mb-30">
+                        <div class="product-cart-wrap wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="shop-product-right.html">
-                                        <img class="default-img" src="assets/landing/imgs/shop/product-1-1.jpg" alt="" />
-                                        <img class="hover-img" src="assets/landing/imgs/shop/product-1-2.jpg" alt="" />
+                                        <img src="{{asset('attachments/'. $item->imageProduct)}}" />
+
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -99,79 +68,47 @@
                                     <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
                                     <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                                 </div>
-                                <div class="product-badges product-badges-position product-badges-mrg">
-                                    <span class="hot">Hot</span>
-                                </div>
                             </div>
                             <div class="product-content-wrap">
-                                <div class="product-category">
-                                    <a href="shop-grid-right.html">Snack</a>
-                                </div>
-                                <h2><a href="shop-product-right.html">Seeds of Change Organic Quinoe</a></h2>
+
+                                <h2><a href="shop-product-right.html">{{$item->name}}</a></h2>
                                 <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">
                                         <div class="product-rating" style="width: 90%"></div>
                                     </div>
                                     <span class="font-small ml-5 text-muted"> (4.0)</span>
                                 </div>
-                                <div>
-                                    <span class="font-small text-muted">By <a href="vendor-details-1.html">NestFood</a></span>
-                                </div>
                                 <div class="product-card-bottom">
                                     <div class="product-price">
-                                        <span>$28.85</span>
-                                        <span class="old-price">$32.8</span>
+                                        <span>{{$item->price}}</span>
+
                                     </div>
                                     <div class="add-cart">
-                                        <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                        <a class="add" wire:click.prevent="addToCart({{$item->id}},'{{$item->name}}',{{$item->price}})">
+                                            <i class="fi-rs-shopping-cart mr-5"></i>Add
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-  
+                    @endforeach
+
                     <!--end product card-->
                 </div>
-                <!--product grid-->
-                <div class="pagination-area mt-20 mb-20">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-start">
-                            <li class="page-item">
-                                <a class="page-link" href="#"><i class="fi-rs-arrow-small-left"></i></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"><i class="fi-rs-arrow-small-right"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-             
-                <!--End Deals-->
+
             </div>
             <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
                 <div class="sidebar-widget widget-category-2 mb-30">
                     <h5 class="section-title style-1 mb-30">Category</h5>
                     <ul>
-                        <li>
-                            <a href="shop-grid-right.html"> <img src="assets/landing/imgs/theme/icons/category-1.svg" alt="" />Milks & Dairies</a><span class="count">30</span>
-                        </li>
-                        <li>
-                            <a href="shop-grid-right.html"> <img src="assets/landing/imgs/theme/icons/category-2.svg" alt="" />Clothing</a><span class="count">35</span>
-                        </li>
-                        <li>
-                            <a href="shop-grid-right.html"> <img src="assets/landing/imgs/theme/icons/category-3.svg" alt="" />Pet Foods </a><span class="count">42</span>
-                        </li>
-                        <li>
-                            <a href="shop-grid-right.html"> <img src="assets/landing/imgs/theme/icons/category-4.svg" alt="" />Baking material</a><span class="count">68</span>
-                        </li>
-                        <li>
-                            <a href="shop-grid-right.html"> <img src="assets/landing/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a><span class="count">87</span>
-                        </li>
+                        @foreach(\App\Models\Category::all() as $item)
+                            <li>
+                                <a href="shop-grid-right.html"> <img src="assets/landing/imgs/theme/icons/category-5.svg" alt="" />{{$item->name}}</a><span class="count">{{$item->product ? $item->product->count() . " item" : "0 item"}}</span>
+                            </li>
+                            {{-- <span>{{$item->product ? $item->product->count() . " item" : "0 item"}}</span> --}}
+
+                        @endforeach
                     </ul>
                 </div>
                 <!-- Fillter By Price -->
@@ -215,7 +152,7 @@
                     <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
                 </div>
                 <!-- Product sidebar Widget -->
-                
+
                 <div class="banner-img wow fadeIn mb-lg-0 animated d-lg-block d-none">
                     <img src="assets/landing/imgs/banner/banner-11.png" alt="" />
                     <div class="banner-text">
