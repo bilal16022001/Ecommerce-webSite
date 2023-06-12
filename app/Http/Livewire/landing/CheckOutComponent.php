@@ -6,7 +6,7 @@ use App\Http\Livewire\Order;
 use App\Models\Adresse;
 use App\Models\ProductOrder;
 use Livewire\Component;
-
+use Cart;
 class CheckOutComponent extends Component
 {
   public $fname;
@@ -19,25 +19,28 @@ class CheckOutComponent extends Component
   public $email;
 
     public function order(){
-        Adresse::create([
-            "user_id" => auth("web")->user()->id,
-            "FirstName" => $this->fname,
-            "LastName" => $this->lname,
-            "Address" => $this->address,
-            "country" => $this->country,
-            "city" => $this->city,
-            "zipcode" => $this->zipcode,
-            "phone" => $this->phone,
-            "email" => $this->email,
-        ]);
+        // Adresse::create([
+        //     "user_id" => 1,
+        //     "FirstName" => $this->fname,
+        //     "LastName" => $this->lname,
+        //     "Address" => $this->address,
+        //     "country" => $this->country,
+        //     "city" => $this->city,
+        //     "zipcode" => $this->zipcode,
+        //     "phone" => $this->phone,
+        //     "email" => $this->email,
+        // ]);
 
-       Order::create([
+    //    Order::create([
+            //  "user_id" => auth("web")->user()->id
+    //    ]);
+      foreach(Cart::Content() as $item){
+        // dd($item->id);
+      }
+       dd(Cart::Content());
+        // session()->flash('success', 'Orders has been Success .');
 
-       ]);
-
-        session()->flash('success', 'Orders has been Success .');
-
-        return redirect()->route("Shopcart");
+        // return redirect()->route("Shopcart");
 
     }
     public function render()
