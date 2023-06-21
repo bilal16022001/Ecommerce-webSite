@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\landing;
 
-use App\Http\Livewire\Order;
+// use App\Http\Livewire\Order;
 use App\Models\Adresse;
+use App\Models\Product;
 use App\Models\ProductOrder;
 use Livewire\Component;
+use App\Models\Order;
 use Cart;
 class CheckOutComponent extends Component
 {
@@ -17,7 +19,7 @@ class CheckOutComponent extends Component
   public $zipcode;
   public $phone;
   public $email;
-
+ public $products_id;
     public function order(){
         // Adresse::create([
         //     "user_id" => 1,
@@ -34,17 +36,29 @@ class CheckOutComponent extends Component
     //    Order::create([
             //  "user_id" => auth("web")->user()->id
     //    ]);
-      foreach(Cart::Content() as $item){
-        // dd($item->id);
-      }
-       dd(Cart::Content());
-        // session()->flash('success', 'Orders has been Success .');
 
-        // return redirect()->route("Shopcart");
+       foreach(Cart::Content() as $item){
+        $order = Order::findOrFail(auth("web")->user()->id);
+
+        if (!$order->products->contains($item->id)) {
+            $order->products()->attach($item->id);
+        }
+       }
+
+
+        Cart::destroy();
+
+        // $order->products()->attach();
+
+        session()->flash('success', 'Orders has been Success .');
+
+        return redirect()->route("Shopcart");
+
 
     }
     public function render()
     {
+
         $title = 'CheckOut';
         return view('livewire.landing/check-out-component')->layout('layouts.guest', ['title' => $title]);
     }

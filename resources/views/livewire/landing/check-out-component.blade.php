@@ -69,7 +69,7 @@
                             <div class="row shipping_calculator">
                                 <div class="form-group col-lg-6">
                                     <div class="custom_select">
-                                        <input required="" type="text" name="country" placeholder="City / Town *" wire:model="COUNTRY">
+                                        <input required="" type="text" name="country" placeholder="City / Town *" wire:model="country">
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-6">
@@ -105,7 +105,7 @@
                                 <tbody>
                                     @foreach(Cart::content() as $item)
                                     <tr>
-
+                                       <input type="text" value="{{ $item->id }}" name="products[]">
                                         <td class="shopping-cart-img">
 
                                             @if( $item->model)
@@ -137,6 +137,7 @@
                             <img class="mr-15" src="assets/imgs/theme/icons/payment-master.svg" alt="">
                             <img src="assets/imgs/theme/icons/payment-zapper.svg" alt="">
                         </div>
+                        {{-- {{ $order->products }} --}}
                         <a href="#" wire:click.prevent="order()" class="btn btn-fill-out btn-block mt-30">Place an Order<i class="fi-rs-sign-out ml-15"></i></a>
                     </div>
                 </div>

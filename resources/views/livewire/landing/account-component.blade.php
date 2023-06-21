@@ -55,6 +55,7 @@
                                         <div class="card">
                                             <div class="card-header">
                                                 <h3 class="mb-0">Your Orders</h3>
+                                                {{$MyProducts }}
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive">

@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_orders', function (Blueprint $table) {
+        Schema::create('product_order', function (Blueprint $table) {
             $table->id();
-            $table->ForeignId("Product_id")->references("id")->on("products")->onDelete("cascade")->onUpdate("cascade");
+            $table->ForeignId("Product_id")->references("id")->constrained("products")->onDelete("cascade")->onUpdate("cascade");
             $table->ForeignId("Order_id")->references("id")->on("orders")->onDelete("cascade")->onUpdate("cascade");
             $table->integer('total');
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_orders');
+        Schema::dropIfExists('product_order');
     }
 };
